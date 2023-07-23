@@ -15,13 +15,16 @@ public class MemberService {
 		return memberDao.getMemberByLoginId(loginId);
 	}
 
-	public void join(String loginId, String loginPw, String name) {
-		Member member = new Member(loginId, loginPw, name);
+	public void join(String loginId, String loginPw, String nickname, String e_mail, String sex,String birth) {
+		Member member = new Member(loginId, loginPw, nickname, e_mail, sex, birth);
 		memberDao.join(member);
 	}
 
-	public String getMemberByNameId(int memberId) {
-		
-		return null;
+	public Member getMember(int memberId) {
+		return memberDao.getMember(memberId);
+	}
+	
+	public void remove(int memberId) {
+		memberDao.remove(memberId);
 	}
 }

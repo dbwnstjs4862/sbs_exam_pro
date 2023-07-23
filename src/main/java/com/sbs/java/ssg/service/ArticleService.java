@@ -14,21 +14,17 @@ public class ArticleService {
 		articleDao = Container.articleDao;
 	}
 
-	public List<Article> getForPrintArticles(String searchkeyword) {
-		return articleDao.getForPrintArticles(searchkeyword);
+	public List<Article> getForPrintArticles(String boardCode, String searchkeyword) {
+		return articleDao.getForPrintArticles(boardCode, searchkeyword);
 	}
 
 	public Article getArticle(int id) {
 		return articleDao.getArticle(id);
 	}
 
-	public int write(int memberId, int boardId, String title, String body) {
-		Article article = new Article(memberId, boardId, title, body);
+	public int articleWrite(int memberId, int boardId, String nickname, String title, String body) {
+		Article article = new Article(memberId, boardId, nickname, title, body);
 		return articleDao.write(article);
-	}
-
-	public List<Article> getForPrintArticles() {
-		return articleDao.getForPrintArticles(null);
 	}
 
 	public List<Article> getArticles() {

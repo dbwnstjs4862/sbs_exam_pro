@@ -1,5 +1,6 @@
 package com.sbs.java.ssg.controller;
 
+import com.sbs.java.ssg.dto.Article;
 import com.sbs.java.ssg.dto.Board;
 import com.sbs.java.ssg.dto.Member;
 
@@ -9,6 +10,7 @@ import com.sbs.java.ssg.dto.Member;
 public class Session {
 	private Member loginedMember;
 	private Board currentBoard;
+	private Article currentArticle;
 
 	public Member getLoginedMember() {
 		return loginedMember;
@@ -22,10 +24,19 @@ public class Session {
 		this.currentBoard = currentBoard;
 	}
 
+	public void setCurrentArticle(Article currentArticle) {
+		this.currentArticle = currentArticle;
+	}
+	
 	public Board getCurrentBoard() {
 		return currentBoard;
 	}
-
+	
+	public Article getCurrentArticle() {
+		return currentArticle;
+	}
+	
+	
 	public boolean isLogined() {
 		return loginedMember != null;
 	}
