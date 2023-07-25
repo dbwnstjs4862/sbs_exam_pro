@@ -63,10 +63,19 @@ CREATE TABLE `member` (
 	updateDate DATETIME NOT NULL,
 	loginId CHAR(100) NOT NULL UNIQUE,
 	loginPw CHAR(100) NOT NULL,
-	nickname CHAR(100) NOT NULL,
+	`name` CHAR(100) NOT NULL,
+	nickName CHAR(100) NOT NULL,
 	e_mail CHAR(100) NOT NULL,
 	sex CHAR(100) NOT NULL,
-	birth CHAR(100) NOT NULL
+	birth CHAR(100) NOT NULL,
+	height DOUBLE(5,2) NOT NULL,
+	weight DOUBLE(5,2) NOT NULL,
+	bmi DOUBLE(4,2) NOT NULL,
+	bmi_level CHAR(100) NOT NULL,
+	loss CHAR(100) NOT NULL,
+	months CHAR(100) NOT NULL,
+	category CHAR(100) NOT NULL,
+	category_level CHAR(100) NOT NULL
 );
 
 INSERT INTO `member`
@@ -74,30 +83,38 @@ SET regDate = NOW(),
 updateDate = NOW(),
 loginId = 'admin',
 loginPw = 'admin',
-nickname = '관리자',
+`name` = '관리자',
+nickName = '관리자',
 e_mail = 'pyyk@gym.com',
 sex = 'M',
-birth = '881214';
+birth = '881214',
+height = '170',
+weight = '70',
+bmi = '20',
+bmi_level = '표준',
+loss = '1',
+months = 'a',
+category = '1',
+category_level = '1';
 
 INSERT INTO `member`
 SET regDate = NOW(),
 updateDate = NOW(),
 loginId = 'user1',
 loginPw = 'user1',
-nickname = '유저1',
+`name` = '김창민',
+nickName = '유저1',
 e_mail = 'user1@gym.com',
 sex = 'F',
-birth = '990415';
-
-INSERT INTO `member`
-SET regDate = NOW(),
-updateDate = NOW(),
-loginId = 'user2',
-loginPw = 'user2',
-nickname = '유저2',
-e_mail = 'user2@gym.com',
-sex = 'M',
-birth = '941221';
+birth = '990415',
+height = '170',
+weight = '70',
+bmi = '20',
+bmi_level = '표준',
+loss = '1',
+months = 'a',
+category = '1',
+category_level = '1';
 
 SELECT * FROM `member`;
 

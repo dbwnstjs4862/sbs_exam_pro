@@ -70,7 +70,6 @@ public class ArticleController extends Controller {
 		System.out.println("2. 자유 게시판");
 		System.out.println("3. 식품 후기 게시판");
 		System.out.println("4. 운동복 후기 게시판");
-		System.out.println("5. 운동 보조품 게시판");
 		System.out.print("게시판 번호를 입력하세요) ");
 
 		int boardCode = checkScNum();

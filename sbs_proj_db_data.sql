@@ -33,14 +33,14 @@ CREATE TABLE `article` (
   `like` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `boardId` (`boardId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `article` */
 
 insert  into `article`(`id`,`regDate`,`updateDate`,`nickname`,`title`,`body`,`memberId`,`boardId`,`hit`,`like`) values 
-(1,'2023-07-24 05:21:24','2023-07-24 05:21:24','','제목1','내용1',1,1,0,0),
-(2,'2023-07-24 05:21:24','2023-07-24 05:21:24','','제목2','내용2',2,1,0,0),
-(3,'2023-07-24 05:21:24','2023-07-24 05:21:24','','제목3','내용3',1,2,0,0);
+(1,'2023-07-25 17:00:37','2023-07-25 17:00:37','','제목1','내용1',1,1,0,0),
+(2,'2023-07-25 17:00:37','2023-07-25 17:00:37','','제목2','내용2',2,1,0,0),
+(3,'2023-07-25 17:00:37','2023-07-25 17:00:37','','제목3','내용3',1,2,0,0);
 
 /*Table structure for table `articleReply` */
 
@@ -57,13 +57,9 @@ CREATE TABLE `articleReply` (
   `like` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `articleId` (`articleId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `articleReply` */
-
-insert  into `articleReply`(`id`,`regDate`,`updateDate`,`nickname`,`body`,`memberId`,`articleId`,`like`) values 
-(1,'2023-07-24 05:24:03','2023-07-24 05:24:03','유저1','zz',2,4,0),
-(2,'2023-07-24 05:24:39','2023-07-24 05:24:39','유저1','qt',2,4,0);
 
 /*Table structure for table `board` */
 
@@ -82,10 +78,10 @@ CREATE TABLE `board` (
 /*Data for the table `board` */
 
 insert  into `board`(`id`,`regDate`,`updateDate`,`code`,`name`) values 
-(1,'2023-07-24 05:21:24','2023-07-24 05:21:24','notice','공지'),
-(2,'2023-07-24 05:21:24','2023-07-24 05:21:24','free','자유'),
-(3,'2023-07-24 05:21:24','2023-07-24 05:21:24','food','식품 후기'),
-(4,'2023-07-24 05:21:24','2023-07-24 05:21:24','wear','운동복 후기');
+(1,'2023-07-25 17:00:37','2023-07-25 17:00:37','notice','공지'),
+(2,'2023-07-25 17:00:37','2023-07-25 17:00:37','free','자유'),
+(3,'2023-07-25 17:00:37','2023-07-25 17:00:37','food','식품 후기'),
+(4,'2023-07-25 17:00:37','2023-07-25 17:00:37','wear','운동복 후기');
 
 /*Table structure for table `member` */
 
@@ -97,20 +93,28 @@ CREATE TABLE `member` (
   `updateDate` datetime NOT NULL,
   `loginId` char(100) NOT NULL,
   `loginPw` char(100) NOT NULL,
-  `nickname` char(100) NOT NULL,
+  `name` char(100) NOT NULL,
+  `nickName` char(100) NOT NULL,
   `e_mail` char(100) NOT NULL,
   `sex` char(100) NOT NULL,
   `birth` char(100) NOT NULL,
+  `height` double(5,2) NOT NULL,
+  `weight` double(5,2) NOT NULL,
+  `bmi` double(4,2) NOT NULL,
+  `bmi_level` char(100) NOT NULL,
+  `loss` char(100) NOT NULL,
+  `months` char(100) NOT NULL,
+  `category` char(100) NOT NULL,
+  `category_level` char(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `loginId` (`loginId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `member` */
 
-insert  into `member`(`id`,`regDate`,`updateDate`,`loginId`,`loginPw`,`nickname`,`e_mail`,`sex`,`birth`) values 
-(1,'2023-07-24 05:21:24','2023-07-24 05:21:24','admin','admin','관리자','pyyk@gym.com','M','881214'),
-(2,'2023-07-24 05:21:24','2023-07-24 05:21:24','user1','user1','유저1','user1@gym.com','F','990415'),
-(3,'2023-07-24 05:21:24','2023-07-24 05:21:24','user2','user2','유저2','user2@gym.com','M','941221');
+insert  into `member`(`id`,`regDate`,`updateDate`,`loginId`,`loginPw`,`name`,`nickName`,`e_mail`,`sex`,`birth`,`height`,`weight`,`bmi`,`bmi_level`,`loss`,`months`,`category`,`category_level`) values 
+(1,'2023-07-25 17:00:37','2023-07-25 17:00:37','admin','admin','관리자','관리자','pyyk@gym.com','M','881214',170.00,70.00,20.00,'표준','1','a','1','1'),
+(2,'2023-07-25 17:00:37','2023-07-25 17:00:37','user1','user1','김창민','유저1','user1@gym.com','F','990415',170.00,70.00,20.00,'표준','1','a','1','1');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
